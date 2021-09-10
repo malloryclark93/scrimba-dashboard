@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 0px 20px #aaaaaa;
+  font-size: larger;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+div#top {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1#time {
+  text-align: center;
+}
+
+div#crypto-top {
+  display: flex;
+  align-items: center;
+}
+
+div#crypto-top > span {
+  margin-left: 10px;
+}
