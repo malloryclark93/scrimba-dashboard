@@ -5,7 +5,7 @@ let todaysPrice = document.getElementById('today')
 let highPrice = document.getElementById('coin-high')
 let lowPrice = document.getElementById('coin-low')
 let localTime = document.getElementById('time')
-
+let weather = document.getElementById('weather')
 
 
 // let time = today.getHours() + ':' + today.getMinutes()
@@ -39,25 +39,36 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
 
       lowPrice.innerHTML = `👇: $${data.market_data.low_24h.usd}`
 
-      localTime.textContent = date.toLocaleTimeString('en-us',{timeStyle: 'short'})
-
     })
 
       .catch(err => console.log(err))
 
 
   function getTime(){
-      const date = new Date();
-      localTime.textContent = date.toLocaleTimeString('en-us',{timeStyle: 'medium'})
-      // console.log(date.toLocaleTimeString('en-us',{timeStyle: 'short'}))
+      let date = new Date();
+      localTime.textContent = date.toLocaleTimeString('en-us',{timeStyle: 'short'})
+      localTime.textContent = date.toLocaleTimeString('en-us',{timeStyle: 'short'})
     }
 
 
     setInterval(getTime, 1000)
 
 
+    function retrieveWeather(){
+      if('geolocation' in navigator){
+        navigator.geolocation.getCurrentPosition(position => {
+          console.log(position)
+        })
+        // navigator.geolocation.getCurrentPosition(function(position){
+        //   console.log(position.coords.latitude)
+        //   console.log(position.coords.longitude)
+        // })
+      } else {
+        console.log('location not available')
+      }
+    } 
 
-
+    retrieveWeather()
 
 
 
