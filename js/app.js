@@ -54,24 +54,34 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
     setInterval(getTime, 1000)
 
 
-    function retrieveWeather(){
-      if('geolocation' in navigator){
-        navigator.geolocation.getCurrentPosition(position => {
-          console.log(position)
-        })
-        // navigator.geolocation.getCurrentPosition(function(position){
-        //   console.log(position.coords.latitude)
-        //   console.log(position.coords.longitude)
-        // })
-      } else {
-        console.log('location not available')
-      }
-    } 
+  
 
-    retrieveWeather()
+ navigator.geolocation.getCurrentPosition(position => {
+   fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
+   .then(response => {
+     if(!response.ok) {
+       throw Error('weather info not retrieved')
+     }
+     return response.json()
+   })
+   .then(data => {
+      console.log(data )
+   })
+
+ })
 
 
 
+
+
+
+
+//     * BaseURL: https://apis.scrimba.com/openweathermap/data/2.5/weather
+//  * Queries to include: 
+//  *     - lat (latitude)
+//  *     - lon (longitude)
+//  *     - units (imperial or metric)
+//  */
 
 
 
