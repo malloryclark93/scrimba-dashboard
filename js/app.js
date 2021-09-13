@@ -71,8 +71,8 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
      const iconImg = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
      // changing our innerHTML to icon image 
     document.getElementById('weather').innerHTML = `<img src="${iconImg}"</ >
-    <p>${Math.round(data.main.temp)}º</p>
-    <p>${data.name}</p>
+    <p class="temperature">${Math.round(data.main.temp)}º</p>
+    <p class="city-name">${data.name}</p>
     `
     // ^^ displaying temperature and city name
     
