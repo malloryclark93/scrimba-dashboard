@@ -32,7 +32,9 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
       // console.log(data)
       cryptoText.innerHTML =  ` <img src=${data.image.small} />
       <span>${data.name}</span>`
+      // ^^ dogecoin name displays 
 
+      // reflecting the prices 
       todaysPrice.textContent = `🎯: $${data.market_data.current_price.usd}`,
 
       highPrice.innerHTML = `👆: $${data.market_data.high_24h.usd}`,
@@ -43,7 +45,7 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
 
       .catch(err => console.log(err))
 
-
+// displaying our time 
   function getTime(){
       let date = new Date();
       localTime.textContent = date.toLocaleTimeString('en-us',{timeStyle: 'short'})
@@ -55,7 +57,7 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
 
 
   
-
+// getting lantitude and longitude coords
  navigator.geolocation.getCurrentPosition(position => {
    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
    .then(response => {
@@ -65,34 +67,18 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
      return response.json()
    })
    .then(data => {
+     // retrieving icon image
      const iconImg = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+     // changing our innerHTML to icon image 
     document.getElementById('weather').innerHTML = `<img src="${iconImg}"</ >`
-      console.log(data )
+      console.log(data)
    })
    .catch(err => console.error(err))
 
  })
 
 
-      
-
-
-
-    // .then(!response.ok){
-    //   throw Error('cannot get data')
-    // } 
-    // return response.json()
-
-
-
-
-
-//     * BaseURL: https://apis.scrimba.com/openweathermap/data/2.5/weather
-//  * Queries to include: 
-//  *     - lat (latitude)
-//  *     - lon (longitude)
-//  *     - units (imperial or metric)
-//  */
+    
 
 
 
@@ -100,9 +86,4 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
 
 
 
-  // await fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=sunsets')
-//   const result = await (response => response.json())
-//     console.log(result => {
-//       console.log(result)
-//       // document.body.style.backgroundImage = `url(<)`
-//     })
+
