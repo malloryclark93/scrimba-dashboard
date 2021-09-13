@@ -65,12 +65,23 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
      return response.json()
    })
    .then(data => {
+     const iconImg = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    document.getElementById('weather').innerHTML = `<img src="${iconImg}"</ >`
       console.log(data )
    })
+   .catch(err => console.error(err))
 
  })
 
 
+      
+
+
+
+    // .then(!response.ok){
+    //   throw Error('cannot get data')
+    // } 
+    // return response.json()
 
 
 
