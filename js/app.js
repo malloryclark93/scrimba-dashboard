@@ -53,7 +53,7 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
     }
 
 
-    setInterval(getTime, 1000)
+    setInterval(getTime, 100)
 
 
   
@@ -70,8 +70,14 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
      // retrieving icon image
      const iconImg = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
      // changing our innerHTML to icon image 
-    document.getElementById('weather').innerHTML = `<img src="${iconImg}"</ >`
+    document.getElementById('weather').innerHTML = `<img src="${iconImg}"</ >
+    <p>${Math.round(data.main.temp)}º</p>
+    <p>${data.name}</p>
+    `
+    // ^^ displaying temperature and city name
+    
       console.log(data)
+
    })
    .catch(err => console.error(err))
 
